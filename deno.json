@@ -1,18 +1,17 @@
 {
   "lock": false,
   "imports": {
-    "@std/collections": "jsr:@std/collections@^1",
+    "@std/collections": "jsr:@std/collections@^1.1.0",
+    "@std/data-structures": "jsr:@std/data-structures@^1.0.8",
     "@std/http": "jsr:@std/http@^1",
-    "@std/text": "jsr:@std/text@^1",
-    "preact": "npm:preact@^10",
-    "preact-render-to-string": "npm:preact-render-to-string@^6"
-  },
-  "compilerOptions": {
-    "jsx": "precompile",
-    "jsxImportSource": "preact"
+    "@std/text": "jsr:@std/text@^1.0.13",
+    "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.1.7",
+    "tailwindcss": "npm:tailwindcss@^4.1.7"
   },
   "tasks": {
-    "serve": "deno run -A server.ts",
-    "dev": "deno run -A --watch server.ts"
-  }
+    "build": "deno -A npm:@tailwindcss/cli -i input.css -o static/styles.css",
+    "serve": "deno run -A main.ts",
+    "dev": "deno task build && deno run -A --watch main.ts"
+  },
+  "nodeModulesDir": "auto"
 }
